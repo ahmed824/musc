@@ -2,219 +2,315 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MUSC</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MUSC</title>
 
-    <!-- Google Fonts - Rubik -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts - Rubik -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
 
-    <!-- Custom CSS -->
-    <link href="styles.css" rel="stylesheet">
-    <link href="css/scroll-circle.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- Custom CSS -->
+  <link href="styles.css" rel="stylesheet" />
+  <link href="css/scroll-circle.css" rel="stylesheet" />
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
-
-
-    <!-- Floating Navigation -->
-    <nav class="floating-nav">
-        <div class="nav-container">
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#products">products</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact us</a></li>
-            </ul>
-            <div class="search-container">
-                <button class="search-toggle">
-                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </button>
-                <div class="search-input-wrapper">
-                    <input type="text" class="search-input" placeholder="Search...">
-                    <button class="close-search">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Header -->
-    <header class="main-header ">
-
-        <div class="container ">
-            <nav class="navbar">
-                <a href="/" class="logo">
-                    <img src="utilities/logo.svg" alt="Logo" class="logo-img">
-                </a>
-                <div class="nav-center"></div>
-                <div class="auth-buttons">
-                    <button class="btn btn-login">Log in</button>
-                    <button class="btn btn-signup">Sign up</button>
-                </div>
-            </nav>
-        </div>
-
-    </header>
-
-    <!-- Main image section (starts immediately) -->
-    <div class="image-section" id="imageSection">
-        <h2 class="section-title" id="sectionTitle">from tools to fixes...</h2>
-
-        <!-- Scroll Circle -->
-        <a href="#mainCat" class="scroll-circle-container" id="scrollCircle">
-            <div class="scroll-hint" id="scrollHint">Ready to Explore?</div>
-
-            <svg width="250" height="250" viewBox="0 0 250 250" id="mainSvg">
-                <!-- Animated background gradient -->
-                <defs>
-                    <radialGradient id="bgGradient" cx="50%" cy="50%" r="50%">
-                        <stop offset="0%" style="stop-color:rgba(255,255,255,0.1);stop-opacity:1" />
-                        <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:1" />
-                    </radialGradient>
-
-                    <filter id="glow">
-                        <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-                        <feMerge>
-                            <feMergeNode in="coloredBlur" />
-                            <feMergeNode in="SourceGraphic" />
-                        </feMerge>
-                    </filter>
-                </defs>
-
-                <!-- Main circles -->
-                <circle cx="125" cy="125" r="115" class="outer-circle" />
-                <circle cx="125" cy="125" r="75" class="inner-circle" />
-
-                <!-- Circular text paths -->
-                <defs>
-                    <path id="circle-path-outer" d="M 125, 125 m -90, 0 a 90,90 0 1,1 180,0 a 90,90 0 1,1 -180,0" />
-                    <path id="circle-path-inner" d="M 125, 125 m -60, 0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0" />
-                </defs>
-
-                <!-- Outer text -->
-                <text class="circle-text" font-size="11" id="outerText">
-                    <textPath href="#circle-path-outer" startOffset="0%">
-                        SCROLL TO EXPLORE &nbsp; SCROLL TO EXPLORE &nbsp; SCROLL TO EXPLORE &nbsp; SCROLL TO EXPLORE
-                        &nbsp; SCROLL TO EXPLORE &nbsp; SCROLL TO EXPLORE &nbsp;
-                    </textPath>
-                </text>
-
-                <!-- Central arrow with enhanced design -->
-                <g class="arrow-container" id="arrowContainer" transform="translate(125, 125)">
-                    <!-- Arrow glow background -->
-                    <circle cx="0" cy="0" r="25" fill="rgba(255,255,255,0.1)" id="arrowGlow" />
-
-                    <!-- Main arrow -->
-                    <g class="arrow-icon" id="mainArrow">
-                        <!-- Arrow shaft -->
-                        <rect x="-2.5" y="-20" width="5" height="25" rx="2.5" />
-                        <!-- Arrow head -->
-                        <path d="M -12,8 L 0,20 L 12,8 Z" />
-                        <!-- Arrow tail -->
-                        <circle cx="0" cy="-17" r="3" fill="rgba(255,255,255,0.6)" />
-                    </g>
-                </g>
-
-                <!-- Floating particles -->
-                <g id="particleContainer"></g>
+  <!-- Floating Navigation -->
+  <nav class="floating-nav">
+    <div class="nav-container">
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#products">products</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact us</a></li>
+      </ul>
+      <div class="search-container">
+        <button class="search-toggle">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="search-input-wrapper">
+          <input type="text" class="search-input" placeholder="Search..." />
+          <button class="close-search">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
             </svg>
-
-            <div class="loading-text" id="loadingText">Click to Continue</div>
-        </a>
-
-        <div class="image-container">
-            <!-- Back image (moves left during scroll) -->
-            <img src="utilities/header2.png" alt="Back Layer" class="image-item back-image" id="backImage">
-
-            <!-- Middle image (moves right during scroll) -->
-            <img src="utilities/header3.png" alt="Middle Layer" class="image-item middle-image" id="middleImage">
-
-            <!-- Front image (visible first, stays center) -->
-            <img src="utilities/header1.png" alt="Front Layer" class="image-item front-image" id="frontImage">
+          </button>
         </div>
+      </div>
+    </div>
+  </nav>
 
-        <h2 class="section-bottom-title text-center ">Everything you need to power, fix, <br>
-            and upgrade your space</h2>
+  <!-- Header -->
+  <header class="main-header">
+    <div class="container">
+      <nav class="navbar">
+        <a href="/" class="logo">
+          <img src="utilities/logo.svg" alt="Logo" class="logo-img" />
+        </a>
+        <div class="nav-center"></div>
+        <div class="auth-buttons">
+          <button class="btn btn-login">Log in</button>
+          <button class="btn btn-signup">Sign up</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main image section (starts immediately) -->
+  <div class="image-section" id="imageSection">
+    <h2 class="section-title" id="sectionTitle">from tools to fixes...</h2>
+
+    <!-- Scroll Circle -->
+    <a href="#mainCat" class="scroll-circle-container" id="scrollCircle">
+      <div class="scroll-hint" id="scrollHint">Ready to Explore?</div>
+
+      <svg width="250" height="250" viewBox="0 0 250 250" id="mainSvg">
+        <!-- Animated background gradient -->
+        <defs>
+          <radialGradient id="bgGradient" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" style="stop-color: rgba(255, 255, 255, 0.1); stop-opacity: 1" />
+            <stop offset="100%" style="stop-color: rgba(255, 255, 255, 0); stop-opacity: 1" />
+          </radialGradient>
+
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+            <feMerge>
+              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        <!-- Main circles -->
+        <circle cx="125" cy="125" r="115" class="outer-circle" />
+        <circle cx="125" cy="125" r="75" class="inner-circle" />
+
+        <!-- Circular text paths -->
+        <defs>
+          <path id="circle-path-outer" d="M 125, 125 m -90, 0 a 90,90 0 1,1 180,0 a 90,90 0 1,1 -180,0" />
+          <path id="circle-path-inner" d="M 125, 125 m -60, 0 a 60,60 0 1,1 120,0 a 60,60 0 1,1 -120,0" />
+        </defs>
+
+        <!-- Outer text -->
+        <text class="circle-text" font-size="11" id="outerText">
+          <textPath href="#circle-path-outer" startOffset="0%">
+            SCROLL TO EXPLORE &nbsp; SCROLL TO EXPLORE &nbsp; SCROLL TO
+            EXPLORE &nbsp; SCROLL TO EXPLORE &nbsp; SCROLL TO EXPLORE &nbsp;
+            SCROLL TO EXPLORE &nbsp;
+          </textPath>
+        </text>
+
+        <!-- Central arrow with enhanced design -->
+        <g class="arrow-container" id="arrowContainer" transform="translate(125, 125)">
+          <!-- Arrow glow background -->
+          <circle cx="0" cy="0" r="25" fill="rgba(255,255,255,0.1)" id="arrowGlow" />
+
+          <!-- Main arrow -->
+          <g class="arrow-icon" id="mainArrow">
+            <!-- Arrow shaft -->
+            <rect x="-2.5" y="-20" width="5" height="25" rx="2.5" />
+            <!-- Arrow head -->
+            <path d="M -12,8 L 0,20 L 12,8 Z" />
+            <!-- Arrow tail -->
+            <circle cx="0" cy="-17" r="3" fill="rgba(255,255,255,0.6)" />
+          </g>
+        </g>
+
+        <!-- Floating particles -->
+        <g id="particleContainer"></g>
+      </svg>
+
+      <div class="loading-text" id="loadingText">Click to Continue</div>
+    </a>
+
+    <div class="image-container">
+      <!-- Back image (moves left during scroll) -->
+      <img src="utilities/header2.png" alt="Back Layer" class="image-item back-image" id="backImage" />
+
+      <!-- Middle image (moves right during scroll) -->
+      <img src="utilities/header3.png" alt="Middle Layer" class="image-item middle-image" id="middleImage" />
+
+      <!-- Front image (visible first, stays center) -->
+      <img src="utilities/header1.png" alt="Front Layer" class="image-item front-image" id="frontImage" />
     </div>
 
-    <!-- main categorey section -->
-    <section class="main-cat" id="mainCat">
-        <h1>FROM TOOLS TO REPAIRS <br> <img class="d-inline-block mb-1" src="./utilities/Rectangle 9.png"
-                alt="wire image"> BROWSE IT ALL IN ONE PLACE</h1>
-        <div class="container">
-            <div class="row g-4">
-                <!-- Electrical Tools -->
-                <div class="col-md-4">
-                    <div class="category-card border-top-bottom">
-                        <div>
-                            <h3>ELECTRICAL TOOLS</h3>
-                            <p>A Set Of Essential Electrical Tools And Components — Bulbs, Socket, Switch, Plug, Wires,
-                                And Pliers</p>
-                            <div class="img-cat-container">
-                                <img src="./utilities/lamp.png" alt="Light Bulb">
-                                <a href="#" class="shop-now-btn">SHOP NOW</a>
-                            </div>
-                        </div>
-                    </div>
+    <h2 class="section-bottom-title text-center">
+      Everything you need to power, fix, <br />
+      and upgrade your space
+    </h2>
+  </div>
+
+  <!-- main categorey section -->
+  <section class="main-cat" id="mainCat">
+    <h1>
+      FROM TOOLS TO REPAIRS <br />
+      <img class="black-image d-inline-block mb-1" src="./utilities/Rectangle 9.png" alt="wire image" />
+      BROWSE IT ALL IN ONE PLACE
+    </h1>
+    <div class="container">
+      <div class="row g-4">
+        <!-- Electrical Tools -->
+        <div class="col-md-4 p-0">
+          <div class="category-card border-top-bottom">
+            <div>
+              <div class="d-flex flex-column m-4">
+                <h3>ELECTRICAL TOOLS</h3>
+                <p>
+                  A Set Of Essential Electrical Tools And Components — Bulbs,
+                  Socket, Switch, Plug, Wires, And Pliers
+                </p>
+              </div>
+              <div class="img-cat-container">
+                <img src="./utilities/lamp.png" alt="Light Bulb" />
+                <a href="#" class="shop-now-btn">SHOP NOW
+                  <svg class="ms-2" width="30" height="30" viewBox="0 0 30 30" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="15" cy="15" r="14.5" stroke="black" />
+                    <path
+                      d="M18.4932 13.0822C18.5386 12.8098 18.3546 12.5522 18.0822 12.5068L13.6434 11.767C13.371 11.7216 13.1134 11.9056 13.068 12.178C13.0226 12.4504 13.2066 12.708 13.479 12.7534L17.4246 13.411L16.767 17.3566C16.7216 17.629 16.9056 17.8866 17.178 17.932C17.4504 17.9774 17.708 17.7934 17.7534 17.521L18.4932 13.0822ZM11 18L11.2906 18.4069L18.2906 13.4069L18 13L17.7094 12.5931L10.7094 17.5931L11 18Z"
+                      fill="black" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Sanitary Ware -->
+        <div class="col-md-4 p-0">
+          <div class="category-card border-all">
+            <div>
+
+              <div class="img-cat-container">
+                <img src="./utilities/hanafia.png" alt="Faucet" />
+                <a href="#" class="shop-now-btn">SHOP NOW
+                  <svg class="ms-2" width="30" height="30" viewBox="0 0 30 30" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="15" cy="15" r="14.5" stroke="black" />
+                    <path
+                      d="M18.4932 13.0822C18.5386 12.8098 18.3546 12.5522 18.0822 12.5068L13.6434 11.767C13.371 11.7216 13.1134 11.9056 13.068 12.178C13.0226 12.4504 13.2066 12.708 13.479 12.7534L17.4246 13.411L16.767 17.3566C16.7216 17.629 16.9056 17.8866 17.178 17.932C17.4504 17.9774 17.708 17.7934 17.7534 17.521L18.4932 13.0822ZM11 18L11.2906 18.4069L18.2906 13.4069L18 13L17.7094 12.5931L10.7094 17.5931L11 18Z"
+                      fill="black" />
+                  </svg>
+                </a>
+              </div>
+
+              <div class="d-flex flex-column m-4">
+                <h3>SANITARY WARE</h3>
+                <p>
+                  A Set Of Essential Electrical Tools And Components — Bulbs,
+                  Socket, Switch, Plug, Wires, And Pliers
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- Cameras -->
+        <div class="col-md-4 p-0">
+          <div class="category-card border-top-bottom">
+            <div>
+              <div class="d-flex flex-column m-4">
+                <h3>CAMERAS</h3>
+                <p>
+                  A Set Of Essential Electrical Tools And Components — Bulbs,
+                  Socket, Switch, Plug, Wires, And Pliers
+                </p>
+              </div>
+              <div class="img-cat-container">
+                <img src="./utilities/cam.png" alt="Camera" />
+                <a href="#" class="shop-now-btn">SHOP NOW
+                  <svg class="ms-2" width="30" height="30" viewBox="0 0 30 30" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="15" cy="15" r="14.5" stroke="black" />
+                    <path
+                      d="M18.4932 13.0822C18.5386 12.8098 18.3546 12.5522 18.0822 12.5068L13.6434 11.767C13.371 11.7216 13.1134 11.9056 13.068 12.178C13.0226 12.4504 13.2066 12.708 13.479 12.7534L17.4246 13.411L16.767 17.3566C16.7216 17.629 16.9056 17.8866 17.178 17.932C17.4504 17.9774 17.708 17.7934 17.7534 17.521L18.4932 13.0822ZM11 18L11.2906 18.4069L18.2906 13.4069L18 13L17.7094 12.5931L10.7094 17.5931L11 18Z"
+                      fill="black" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- hero section -->
+  <section class="hero-section">
+    <div class="content-wrapper">
+        <div class="left-content">
+            <h1 class="main-title">
+                LIGHT UP YOUR SPACE<br>
+                WITH TASTE AND ELEGANCE
+            </h1>
+            
+            <div class="curved-line">
+                <svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 50 Q100 10 190 50" stroke="#ffffff" stroke-width="2" fill="none" opacity="0.8"/>
+                </svg>
+            </div>
+            
+            <div class="d-flex flex-column left-content-text">
+              <p class="description">
+                Modern LED Touches For Bulbs, Wall Lights, And Strips – 
+                Combining Beauty And Functionality For Every Corner
+            </p>
+            
+            <button class="shop-now-btn" id="shopNowBtn">
+                <span class="shop-now-text">SHOP NOW</span>
+                <div class="btn-circle">
+                  <i class="fa-solid fa-arrow-up-long"></i>
                 </div>
-                <!-- Sanitary Ware -->
-                <div class="col-md-4">
-                    <div class="category-card border-all">
-                        <div>
-                            <h3>SANITARY WARE</h3>
-                            <p>A Set Of Essential Electrical Tools And Components — Bulbs, Socket, Switch, Plug, Wires,
-                                And Pliers</p>
-                            <div class="img-cat-container">
-                                <img src="./utilities/hanafia.png" alt="Faucet">
-                                <a href="#" class="shop-now-btn">SHOP NOW</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Cameras -->
-                <div class="col-md-4">
-                    <div class="category-card border-top-bottom">
-                        <div>
-                            <h3>CAMERAS</h3>
-                            <p>A Set Of Essential Electrical Tools And Components — Bulbs, Socket, Switch, Plug, Wires,
-                                And Pliers</p>
-                            <div class="img-cat-container">
-                                <img src="./utilities/cam.png" alt="Camera">
-                                <a href="#" class="shop-now-btn">SHOP NOW</a>
-                            </div>
-                        </div>
+            </button>
+            </div>
+        </div>
+        
+        <div class="right-content">
+            <div class="furniture-scene">
+                <div class="dining-setup">
+                    <img src="./utilities/decor.png" alt="decor image">
+                    
+                    <div class="sale-badge">
+                        <div class="sale-text">Sale Up To</div>
+                        <div class="sale-percentage">%50</div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Custom JS -->
-    <script src="script.js"></script>
-    <script src="js/scroll-circle.js"></script>
 
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+  <script src="js/scroll-circle.js"></script>
+
+  <!-- GSAP Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </body>
 
 </html>

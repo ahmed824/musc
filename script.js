@@ -162,4 +162,239 @@ gsap.to("#frontImage", {
 // Refresh ScrollTrigger after page load
 window.addEventListener('load', () => {
     ScrollTrigger.refresh();
+});
+
+// Animate category cards with enhanced effects
+function initCategoryAnimations() {
+  // Create a timeline for each card
+  const cards = document.querySelectorAll('.category-card');
+  
+  // First card animation (from top with rotation)
+  gsap.from(cards[0], {
+    scrollTrigger: {
+      trigger: cards[0],
+      start: "top 80%",
+      end: "top 20%",
+      toggleActions: "play none none reverse",
+      markers: false
+    },
+    y: -200,
+    rotation: -10,
+    opacity: 0,
+    duration: 1.2,
+    ease: "power2.out"
+  });
+
+  // Middle card animation (from bottom with scale)
+  gsap.from(cards[1], {
+    scrollTrigger: {
+      trigger: cards[1],
+      start: "top 80%",
+      end: "top 20%",
+      toggleActions: "play none none reverse",
+      markers: false
+    },
+    y: 200,
+    scale: 0.8,
+    opacity: 0,
+    duration: 1.5,
+    ease: "elastic.out(1, 0.8)"
+  });
+
+  // Last card animation (from top with rotation opposite)
+  gsap.from(cards[2], {
+    scrollTrigger: {
+      trigger: cards[2],
+      start: "top 80%",
+      end: "top 20%",
+      toggleActions: "play none none reverse",
+      markers: false
+    },
+    y: -200,
+    rotation: 10,
+    opacity: 0,
+    duration: 1.2,
+    ease: "power2.out"
+  });
+
+  // Enhanced image animations
+  cards.forEach((card, index) => {
+    const img = card.querySelector('img');
+    const title = card.querySelector('h3');
+    const text = card.querySelector('p');
+        
+    // Create timeline for each card's contents
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: card,
+        start: "top 80%",
+        end: "top 20%",
+        toggleActions: "play none none reverse"
+      }
+    });
+
+    // Sequence of animations
+    tl.from(img, {
+      scale: 0,
+      rotation: index === 1 ? 360 : -360,
+      opacity: 0,
+      duration: 1.5,
+      ease: "power2.out"
+    })
+    .from(title, {
+      x: index === 1 ? 100 : -100,
+      opacity: 0,
+      duration: 0.8
+    }, "-=0.8")
+    .from(text, {
+      y: 50,
+      opacity: 0,
+      duration: 0.8
+    }, "-=0.5")
+   
+  });
+
+  // Add hover animations
+  cards.forEach(card => {
+    const img = card.querySelector('img');
+    
+    card.addEventListener('mouseenter', () => {
+      gsap.to(img, {
+        scale: 1.1,
+        rotation: 5,
+        duration: 0.3,
+        ease: "power1.out"
+      });
+      gsap.to(card, {
+        y: -10,
+        duration: 0.3,
+        ease: "power1.out"
+      });
+    });
+
+    card.addEventListener('mouseleave', () => {
+      gsap.to(img, {
+        scale: 1,
+        rotation: 0,
+        duration: 0.3,
+        ease: "power1.in"
+      });
+      gsap.to(card, {
+        y: 0,
+        duration: 0.3,
+        ease: "power1.in"
+      });
+    });
+  });
+}
+
+// Initialize animations when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  initCategoryAnimations();
 }); 
+
+
+// hero section
+gsap.timeline()
+.from('.main-title', {
+    duration: 1.5,
+    y: 50,
+    opacity: 0,
+    ease: 'power3.out'
+})
+.from('.curved-line', {
+    duration: 1,
+    scaleX: 0,
+    transformOrigin: 'left center',
+    ease: 'power2.out'
+}, '-=0.8')
+.from('.description', {
+    duration: 1,
+    y: 30,
+    opacity: 0,
+    ease: 'power2.out'
+}, '-=0.6')
+
+.from('.dining-setup', {
+    duration: 1.5,
+    scale: 0.8,
+    opacity: 0,
+    ease: 'power3.out'
+}, '-=1.2')
+.from('.sale-badge', {
+    duration: 0.8,
+    scale: 0,
+    rotation: 180,
+    ease: 'back.out(1.7)'
+}, '-=0.3');
+
+// Shop Now button interactions
+const shopBtn = document.getElementById('shopNowBtn');
+
+shopBtn.addEventListener('mouseenter', () => {
+gsap.to('.btn-circle', {
+    duration: 0.4,
+    scale: 1.1,
+    ease: 'power2.out'
+});
+});
+
+shopBtn.addEventListener('mouseleave', () => {
+gsap.to('.btn-circle', {
+    duration: 0.4,
+    scale: 1,
+    ease: 'power2.out'
+});
+});
+
+shopBtn.addEventListener('click', (e) => {
+e.preventDefault();
+
+// Click animation
+gsap.timeline()
+    .to('.shop-now-btn', {
+        duration: 0.1,
+        scale: 0.95,
+        ease: 'power2.out'
+    })
+    .to('.shop-now-btn', {
+        duration: 0.3,
+        scale: 1,
+        ease: 'back.out(1.7)'
+    })
+    .to('.btn-circle', {
+        duration: 0.6,
+        rotation: 360,
+        ease: 'power2.inOut'
+    }, '-=0.3');
+
+console.log('Shop Now clicked!');
+});
+
+// Ambient lighting animation
+gsap.to('.ambient-glow', {
+duration: 3,
+scale: 1.3,
+opacity: 0.4,
+repeat: -1,
+yoyo: true,
+ease: 'sine.inOut'
+});
+
+// Subtle furniture animations
+gsap.to('.pendant-light', {
+duration: 4,
+rotation: 2,
+repeat: -1,
+yoyo: true,
+ease: 'sine.inOut',
+transformOrigin: 'top center'
+});
+
+gsap.to('.wall-light::before', {
+duration: 2,
+scale: 1.2,
+repeat: -1,
+yoyo: true,
+ease: 'sine.inOut'
+});
