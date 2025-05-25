@@ -547,8 +547,14 @@ body {
   margin: 0 auto;
   display: block;
   filter: drop-shadow(0 44px 20px rgba(0, 0, 0, 0.18));
-  transform: translateY(-10px);
+  transform: translateY(-50px);
 }
+
+.border-all img {
+  transform: translateY(50px) !important;
+
+}
+
 .category-card h3 {
   font-size: 1.5rem;
   font-weight: bold;
@@ -564,13 +570,20 @@ body {
   align-items: center;
   justify-content: center;
   padding: 10px 20px;
-  border: 1px solid #000;
   border-radius: 50px;
   color: #000;
   text-decoration: none;
   font-weight: bold;
   transition: background-color 0.3s, color 0.3s;
+  position: absolute;
+  bottom: 60px;
 }
+
+.border-all .shop-now-btn {
+  top: 60px !important;
+  bottom: auto;
+}
+
 .shop-now-btn:hover {
   background-color: #000;
   color: #fff;
@@ -592,6 +605,7 @@ body {
   justify-content: center;
   height: 440px;
   width: 330px;
+  position: relative;
 }
 
 
