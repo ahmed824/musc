@@ -399,32 +399,116 @@ yoyo: true,
 ease: 'sine.inOut'
 });
 
-// Initialize Equipment Swiper
+// Initialize Swiper for equipment section
 const equipmentSwiper = new Swiper('.equipment-swiper', {
-  slidesPerView: 4,
+  // Enable smooth sliding
+  speed: 800,
+  
+  // Configure slides per view
+  slidesPerView: 'auto',
   spaceBetween: 30,
-  loop: true,
+  
+  // Enable loop
+  loop: false,
+//   loopFillGroupWithBlank: true,
+  
+  // Enable mousewheel control
+  mousewheel: {
+    invert: false,
+    forceToAxis: true
+  },
+  
+  // Enable keyboard control
+  keyboard: {
+    enabled: true,
+    onlyInViewport: true
+  },
+  
+  // Configure autoplay
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true
+  },
+  
+  // Configure pagination
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+    type: 'progressbar',
+    renderProgressbar: function(progressbarFillClass) {
+      return '<span class="' + progressbarFillClass + '"></span>';
+    }
+  },
+  
+  // Configure navigation
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
   },
+  
+  // Responsive breakpoints
   breakpoints: {
     320: {
       slidesPerView: 1,
       spaceBetween: 20
     },
-    576: {
+    480: {
       slidesPerView: 2,
       spaceBetween: 20
     },
-    992: {
+    768: {
       slidesPerView: 3,
       spaceBetween: 30
     },
-    1200: {
+    1024: {
       slidesPerView: 4,
       spaceBetween: 30
     }
+  },
+  
+  // Enable smooth effects
+  effect: 'slide',
+  grabCursor: true,
+  
+  // Add a11y features
+  a11y: {
+    prevSlideMessage: 'Previous slide',
+    nextSlideMessage: 'Next slide',
+    firstSlideMessage: 'This is the first slide',
+    lastSlideMessage: 'This is the last slide',
+    paginationBulletMessage: 'Go to slide {{index}}'
+  }
+});
+
+// Add hover pause functionality
+const swiperContainer = document.querySelector('.equipment-swiper');
+
+swiperContainer.addEventListener('mouseenter', () => {
+  equipmentSwiper.autoplay.stop();
+});
+
+swiperContainer.addEventListener('mouseleave', () => {
+  equipmentSwiper.autoplay.start();
+});
+
+// Add touch swiping improvements
+equipmentSwiper.on('touchStart', () => {
+  equipmentSwiper.autoplay.stop();
+});
+
+equipmentSwiper.on('touchEnd', () => {
+  equipmentSwiper.autoplay.start();
+});
+
+// Add slide change animation
+equipmentSwiper.on('slideChange', () => {
+  const activeSlide = document.querySelector('.swiper-slide-active');
+  if (activeSlide) {
+    activeSlide.style.transform = 'scale(1.02)';
+    setTimeout(() => {
+      activeSlide.style.transform = 'scale(1)';
+    }, 300);
   }
 });
 
