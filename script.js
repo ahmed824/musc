@@ -398,3 +398,59 @@ repeat: -1,
 yoyo: true,
 ease: 'sine.inOut'
 });
+
+// Initialize Equipment Swiper
+const equipmentSwiper = new Swiper('.equipment-swiper', {
+  slidesPerView: 4,
+  spaceBetween: 30,
+  loop: true,
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 20
+    },
+    576: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    },
+    992: {
+      slidesPerView: 3,
+      spaceBetween: 30
+    },
+    1200: {
+      slidesPerView: 4,
+      spaceBetween: 30
+    }
+  }
+});
+
+// Add hover animations for equipment cards
+const equipmentCards = document.querySelectorAll('.equipment-card');
+
+equipmentCards.forEach(card => {
+  const cardImage = card.querySelector('.card-image img');
+
+  // Create hover timeline
+  const hoverTl = gsap.timeline({ paused: true });
+  
+  hoverTl
+    .to(cardImage, {
+      scale: 1.1,
+      duration: 0.3,
+      ease: "power2.out"
+    })
+
+
+  // Add hover listeners
+  card.addEventListener('mouseenter', () => {
+    hoverTl.play();
+  });
+
+  card.addEventListener('mouseleave', () => {
+    hoverTl.reverse();
+  });
+});
