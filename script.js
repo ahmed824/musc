@@ -538,3 +538,64 @@ equipmentCards.forEach(card => {
     hoverTl.reverse();
   });
 });
+
+// ... existing code ...
+
+// Footer Accordion
+document.addEventListener('DOMContentLoaded', function() {
+  const footerTitles = document.querySelectorAll('.footer-title');
+
+  footerTitles.forEach(title => {
+    if (window.innerWidth <= 991) { // Only add click event for mobile devices
+      title.addEventListener('click', function() {
+        // Remove active class from all other titles
+        footerTitles.forEach(otherTitle => {
+          if (otherTitle !== title) {
+            otherTitle.classList.remove('active');
+          }
+        });
+
+        // Toggle active class on clicked title
+        this.classList.toggle('active');
+
+        // Smooth height animation for content
+        const content = this.nextElementSibling;
+        if (content) {
+          if (this.classList.contains('active')) {
+            content.style.display = 'block';
+            const height = content.scrollHeight;
+            content.style.height = '0px';
+            setTimeout(() => {
+              content.style.height = height + 'px';
+            }, 0);
+          } else {
+            content.style.height = '0px';
+            content.addEventListener('transitionend', function handler() {
+              if (!title.classList.contains('active')) {
+                content.style.display = 'none';
+              }
+              content.removeEventListener('transitionend', handler);
+            });
+          }
+        }
+      });
+    }
+  });
+
+  // Handle window resize
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 991) {
+      // Reset all accordions when screen size becomes larger
+      footerTitles.forEach(title => {
+        title.classList.remove('active');
+        const content = title.nextElementSibling;
+        if (content) {
+          content.style.display = '';
+          content.style.height = '';
+        }
+      });
+    }
+  });
+});
+
+
