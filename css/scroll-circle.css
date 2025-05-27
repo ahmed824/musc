@@ -6,6 +6,11 @@
     cursor: pointer;
     filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.3));
     z-index: 1001;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
 }
 
 .circle-text {
@@ -21,11 +26,13 @@
 
 .arrow-container {
     transform-origin: center;
+    will-change: transform;
 }
 
 .arrow-icon {
     fill: #fff;
     filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+    will-change: transform;
 }
 
 .outer-circle {
@@ -54,21 +61,25 @@
     stroke-linecap: round;
     transform-origin: center;
     transform: rotate(-90deg);
+    will-change: transform;
 }
 
 .pulse-circle {
     fill: rgba(255, 255, 255, 0.05);
     transform-origin: center;
+    will-change: transform;
 }
 
 .orbit-dot {
     fill: #fff;
     transform-origin: 100px 100px;
+    will-change: transform;
 }
 
 .particle {
     fill: rgba(255, 255, 255, 0.8);
     transform-origin: center;
+    will-change: transform, opacity;
 }
 
 .loading-text {
@@ -81,6 +92,8 @@
     font-weight: 300;
     letter-spacing: 2px;
     opacity: 0;
+    will-change: transform, opacity;
+    white-space: nowrap;
 }
 
 .scroll-hint {
@@ -93,10 +106,95 @@
     font-weight: 600;
     text-align: center;
     opacity: 0;
+    will-change: transform, opacity;
+    white-space: nowrap;
 }
 
+/* Tablet styles */
+@media (max-width: 1024px) {
+    .scroll-circle-container {
+        left: 25%;
+        top: 20vh;
+    }
+
+    .circle-text {
+        font-size: 13px;
+        line-height: 26px;
+    }
+
+    .loading-text {
+        font-size: 13px;
+        bottom: -70px;
+    }
+
+    .scroll-hint {
+        font-size: 16px;
+        top: -50px;
+    }
+}
+
+/* Mobile styles */
 @media (max-width: 768px) {
     .scroll-circle-container {
+        left: 20%;
         top: 80px;
+        transform: translateX(-50%) scale(0.85);
     }
-} 
+
+    .circle-text {
+        font-size: 12px;
+        line-height: 24px;
+        letter-spacing: 1.5px;
+    }
+
+    .loading-text {
+        font-size: 12px;
+        bottom: -60px;
+        letter-spacing: 1.5px;
+    }
+
+    .scroll-hint {
+        font-size: 14px;
+        top: -40px;
+    }
+
+    .outer-circle {
+        stroke-width: 1.5;
+    }
+
+    .middle-circle {
+        stroke-width: 1.5;
+        stroke-dasharray: 8 4;
+    }
+
+    .progress-circle {
+        stroke-width: 3;
+    }
+}
+
+/* Small mobile styles */
+@media (max-width: 480px) {
+    .scroll-circle-container {
+        left: 25%;
+        transform: translateX(-50%) scale(0.75);
+    }
+
+    .loading-text {
+        bottom: -50px;
+    }
+
+    .scroll-hint {
+        top: -35px;
+    }
+}
+
+/* Handle touch devices */
+@media (hover: none) {
+    .scroll-circle-container {
+        cursor: default;
+    }
+    
+    .scroll-hint {
+        display: none;
+    }
+}
