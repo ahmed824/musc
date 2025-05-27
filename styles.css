@@ -802,6 +802,10 @@ body {
     max-height: 350px;
     max-width: 280px;
   }
+
+  .main-cat h1 {
+    font-size: 30px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -879,6 +883,10 @@ body {
   display: flex;
   align-items: center;
   padding: 100px 0;
+}
+
+.hero-section .cards-container {
+  gap: 36px;
 }
 
 .content-wrapper {
@@ -1061,12 +1069,18 @@ body {
 }
 
 @media (max-width: 768px) {
+
+  .hero-section .cards-container {
+    gap: 0;
+  }
+
   .content-wrapper {
     flex-direction: column;
   }
 
   .hero-section {
     padding: 0;
+    padding-bottom: 56px;
   }
 
   .left-content {
