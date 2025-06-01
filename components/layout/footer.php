@@ -51,7 +51,7 @@
             </div>
 
             <!-- Important Links Column -->
-            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+            <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 sm_50">
                 <h4 class="footer-title">Imp Links</h4>
                 <ul class="footer-links">
                     <li><a href="#shipping">Return & Exchange Policy</a></li>
@@ -63,7 +63,7 @@
             </div>
 
             <!-- Contact Us Column -->
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-md-6 sm_50">
                 <h4 class="footer-title">Contact Us</h4>
                 <ul class="footer-contact">
                     <li>
@@ -90,13 +90,9 @@
 
         <!-- Copyright Bar -->
         <div class="footer-bottom">
-            <div class="row align-items-center">
-                <div class="col-md-6">
+            <div class="d-flex justify-content-between align-items-center">
                     <p class="copyright">All Copy Rights Reserved For <span>Musc</span> - 2025</p>
-                </div>
-                <div class="col-md-6 text-md-end">
                     <img src="utilities/puiux.png" alt="PUIUX Logo" class="footer-brand">
-                </div>
             </div>
         </div>
     </div>

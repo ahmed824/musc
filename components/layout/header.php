@@ -21,6 +21,7 @@
 
     <!-- Custom CSS -->
     <link href="styles.css" rel="stylesheet" />
+    <link href="responsive.css" rel="stylesheet" />
     <link href="css/scroll-circle.css" rel="stylesheet" />
 
     <!-- GSAP -->
