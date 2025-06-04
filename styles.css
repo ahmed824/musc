@@ -828,7 +828,7 @@ body {
   overflow: hidden;
 }
 
-.btn-circle::before {
+.hero-section .btn-circle::before {
   content: "";
   position: absolute;
   top: 0;
@@ -1420,9 +1420,12 @@ section.product-grid {
 }
 
 .card-arch .card-icon img {
-  width: 35px;
-  height: 35px;
+  width: auto;
+  height: 100%;
   object-fit: contain;
+  border-radius: 50%;
+  filter: grayscale(1);
+  padding: 8px;
 }
 
 .card-arch .card-title {
@@ -1870,7 +1873,8 @@ section.product-grid {
 /* about section */
 
 .about-section {
-  padding: 80px 0;
+  padding: 90px 0 120px 0;
+
   background-color: #fff;
 }
 
@@ -1997,7 +2001,7 @@ section.product-grid {
   text-transform: uppercase;
   color: #ffffff;
   position: absolute;
- 
+
   transform: translate(-50%, -50%);
 }
 
@@ -2013,50 +2017,502 @@ section.product-grid {
 
 .about-section-analysis .main-title {
   color: #000 !important;
+  margin-top: 35px;
 }
 
 /* stats section */
- 
 
 .stats-container {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    background: radial-gradient(50% 50% at 50% 50%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.08) 100%);
-    border-radius: 400px 400px 0 0;
-    padding: 80px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.08) 100%
+  );
+  border-radius: 400px 400px 0 0;
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
 }
 
 .stats-item {
-    text-align: center;
-    min-width: 150px;
+  text-align: center;
+  min-width: 150px;
 }
 
 .stats-number {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #000;
-    margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #000;
+  margin: 0;
 }
 
 .stats-description {
-    font-size: 1rem;
-    color: #666;
-    margin: 5px 0 0;
+  font-size: 1rem;
+  color: #666;
+  margin: 5px 0 0;
+}
+
+.about-section-analysis {
+  padding-bottom: 170px;
+}
+
+.about-section-analysis .description {
+  max-width: 85%;
+  letter-spacing: 0.05em;
+}
+
+.about-section-analysis .curved-line {
+  margin: 10px auto;
+}
+
+.about-section-analysis .shop-now-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 50px;
+  color: #000;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28.8px;
+  letter-spacing: 0%;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 0.3s ease !important;
+  /* position: absolute; */
+  /* bottom: 60px; */
+  width: fit-content;
+}
+
+.about-section-analysis .shop-now-btn:hover i {
+  color: #fff !important;
+}
+
+.about-section-analysis .shop-now-btn:hover .btn-circle {
+  background-color: #000;
+}
+
+.about-section-analysis .btn-circle {
+  border-color: #000;
+  margin-left: 12px;
+}
+
+.image-container-analysis img {
+  position: absolute;
+  width: auto;
+}
+
+.image-container-analysis .bottom-layer-image {
+  left: 18%;
+}
+
+.image-container-analysis .top-layer-image {
+  left: 6%;
+}
+
+/* contact-us-section */
+.contact-us-section {
+  padding: 100px 0;
+  background: #fff;
+}
+.contact-card {
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.08) 100%
+  );
+  padding: 55px 0;
+  text-align: center;
+  transition: all 0.3s ease;
+  height: 100%;
+  width: 360px;
+  height: 260px;
+  border-top-left-radius: 300px;
+  border-top-right-radius: 300px;
+}
+
+.contact-card.middle {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 300px;
+  border-bottom-left-radius: 300px;
+}
+
+.contact-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.contact-icon-img {
+  width: 50px;
+  height: 50px;
+  filter: grayscale(1);
+  border-radius: 50%;
+}
+
+.contact-title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 72.8px;
+  text-transform: capitalize;
+  color: #000;
+}
+
+.contact-info {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 32px;
+  text-align: center;
+  text-transform: capitalize;
+  color: #999999;
+  margin-bottom: 0;
+}
+
+.form-section {
+  padding: 3rem;
+  backdrop-filter: blur(10px);
+  margin-top: 3rem;
+}
+
+.contact-us-section .section-title {
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 72.8px;
+}
+
+.contact-us-section .form-control {
+  border: 1px solid transparent;
+  background: #f6f6f6;
+  border-radius: 50px;
+  padding: 0.8rem 1.2rem;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  padding-left: 40px;
+}
+
+i.input-icon {
+  position: absolute;
+  top: 35%;
+  left: 16px;
+}
+
+.form-control:focus {
+  background: white;
+  border: 1px solid #000;
+  box-shadow: none;
+}
+
+textarea.form-control {
+  border-radius: 10px !important;
+}
+
+.form-label {
+  font-weight: 400;
+  color: #999999;
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.form-control:focus + .form-label,
+.form-control:focus ~ .form-label {
+  color: #000;
+}
+
+.form-control::placeholder {
+  color: #9999;
+  opacity: 1;
+}
+/* From Uiverse.io by wang3616359git */
+.bt {
+  border: none;
+  user-select: none;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+  border-radius: 50px;
+  height: 60px;
+  line-height: 60px;
+  width: 100%;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.msg {
+  height: 0;
+  width: 0;
+  border-radius: 2px;
+  position: absolute;
+  left: 40%;
+  top: 25%;
+}
+
+.bt:active {
+  transition: all 0.001s ease;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #000;
+  transform: translateX(1px) translateY(1px);
+}
+
+.bt:hover .msg {
+  animation: msgRun 2s forwards;
+}
+
+@keyframes msgRun {
+  0% {
+    border-top: #d6d6d9 0 solid;
+    border-bottom: #f2f2f5 0 solid;
+    border-left: #f2f2f5 0 solid;
+    border-right: #f2f2f5 0 solid;
+  }
+
+  20% {
+    border-top: #d6d6d9 14px solid;
+    border-bottom: #f2f2f5 14px solid;
+    border-left: #f2f2f5 20px solid;
+    border-right: #f2f2f5 20px solid;
+  }
+
+  25% {
+    border-top: #d6d6d9 12px solid;
+    border-bottom: #f2f2f5 12px solid;
+    border-left: #f2f2f5 18px solid;
+    border-right: #f2f2f5 18px solid;
+  }
+
+  80% {
+    border-top: transparent 12px solid;
+    border-bottom: transparent 12px solid;
+    border-left: transparent 18px solid;
+    border-right: transparent 18px solid;
+  }
+
+  100% {
+    transform: translateX(150px);
+    border-top: transparent 12px solid;
+    border-bottom: transparent 12px solid;
+    border-left: transparent 18px solid;
+    border-right: transparent 18px solid;
+  }
+}
+.illustration {
+  max-width: 200px;
+  margin-bottom: 2rem;
+}
+
+.phone-illustration {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  animation: float 3s ease-in-out infinite;
+}
+
+.phone-icon {
+  font-size: 4rem;
+  color: white;
+  transform: rotate(-15deg);
+}
+
+.badge-24 {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #2c3e50;
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+img.phone-24 {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+  max-height: 400px;
+  filter: grayscale(1);
+  display: block;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @media (max-width: 768px) {
-    .stats-container {
-        flex-direction: column;
-        align-items: center;
-        border-radius: 30px;
-        padding: 20px;
-    }
+  .section-title {
+    font-size: 2rem;
+  }
+  .section-subtitle {
+    font-size: 1.5rem;
+  }
+  .form-section {
+    padding: 2rem;
+    margin-top: 2rem;
+  }
+}
 
-    .stats-item {
-        margin-bottom: 20px;
-    }
+/* sign up */
+.sign-up-section {
+  padding: 100px 0;
+}
+
+.speech-bubble-container {
+  filter: invert(1);
+}
+
+img.speech-bubble {
+  filter: grayscale(1);
+  max-width: 376px;
+}
+
+.contact-section h1 {
+  font-weight: 600;
+  font-size: 72px;
+  line-height: 100px;
+  text-transform: uppercase;
+  color: #f6f6f6;
+}
+
+.contact-section p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28.8px;
+  text-transform: capitalize;
+  color: #999999;
+}
+
+.sign-up-section .curved-line {
+  margin: 0px auto;
+}
+
+.signup-form-container {
+  max-width: 600px;
+}
+
+.signup-form-container h2 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.signup-form-container .form-control {
+  background: #161616;
+  padding: 14px 14px 14px 50px;
+  border: 1px solid transparent;
+  border-radius: 50px;
+  color: #fff;
+}
+
+.signup-form-container .form-control:focus {
+  border: 1px solid #fff;
+}
+
+.signup-form-container i.input-icon {
+  color: #999999;
+}
+
+.signup-form-container .form-control:focus + .form-label,
+.signup-form-container .form-control:focus ~ .form-label {
+  color: #fff;
+}
+
+.password-toggle {
+  color: #999999;
+  position: absolute;
+  right: 25px;
+  top: 20px;
+}
+
+/* From Uiverse.io by PriyanshuGupta28 */
+.checkbox-wrapper input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-wrapper .terms-label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox-wrapper .terms-label .label-text {
+  margin-left: 10px;
+  color: #999999;
+}
+
+.checkbox-wrapper .terms-label .label-text a {
+  color:#fff;
+  text-decoration:none
+}
+
+.checkbox-wrapper .checkbox-svg {
+  width: 30px;
+  height: 30px;
+}
+
+.checkbox-wrapper .checkbox-box {
+  fill: #585757;
+  stroke: #fff;
+  stroke-dasharray: 800;
+  stroke-dashoffset: 800;
+  transition: stroke-dashoffset 0.6s ease-in;
+}
+
+.checkbox-wrapper .checkbox-tick {
+  stroke: #fff;
+  stroke-dasharray: 172;
+  stroke-dashoffset: 172;
+  transition: stroke-dashoffset 0.6s ease-in;
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked + .terms-label .checkbox-box,
+.checkbox-wrapper input[type="checkbox"]:checked + .terms-label .checkbox-tick {
+  stroke-dashoffset: 0;
+}
+
+.form-group {
+  margin-bottom: 30px;
+}
+
+.btn-form-signup {
+  background: #fff;
+  width: 100%;
+  padding: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #161616;
+  border: none;
+  border-radius: 50px;
+}
+
+.login-link {
+  text-align: center;
+  color: #999999;
+  margin: 30px auto;
+}
+
+.login-link a {
+  color: #fff !important;
 }

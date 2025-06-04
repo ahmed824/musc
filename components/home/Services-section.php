@@ -38,7 +38,7 @@
             <div class="col-md-5">
               <div class="card-arch">
                 <div class="card-icon">
-                  <img src="https://img.icons8.com/ios-filled/50/000000/delivery.png" alt="Shipping Icon" />
+                  <img src="./utilities/delivery-truck.gif" alt="Shipping Icon" />
                 </div>
                 <div>
                   <div class="card-title">SHIPPING ONLY</div>
@@ -55,7 +55,7 @@
                   <p class="card-text">Installation And Maintenance Services Are Limited To Jeddah Only</p>
                 </div>
                 <div class="card-icon mt-4">
-                  <img src="https://img.icons8.com/ios-filled/50/000000/maintenance.png" alt="Install Icon" />
+                  <img src="./utilities/maintenance.gif" alt="Install Icon" />
                 </div>
               </div>
             </div>
