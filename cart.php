@@ -72,7 +72,7 @@ include 'components/layout/header.php';
                         <strong>$109.99</strong>
                     </div>
 
-                    <button class="btn btn-dark w-100 mb-3">Proceed to Checkout</button>
+                    <a href="./checkout.php" class="btn btn-dark w-100 mb-3">Proceed to Checkout</a>
                     <button class="btn btn-outline-dark w-100">Continue Shopping</button>
                 </div>
             </div>

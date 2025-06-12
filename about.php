@@ -58,70 +58,106 @@ include 'components/layout/header.php';
     <!-- analysis section -->
     <div class="about-section-analysis container">
         <div class="row">
-                <div class="col-md-6">
+            <div class="col-md-6">
 
-                    <div class="image-container-analysis">
-                        <img src="utilities/header3.png" alt="Middle Layer" class="bottom-layer-image" />
-                        <img src="utilities/header1.png" alt="Front Layer" class="top-layer-image" />
-                    </div>
+                <div class="image-container-analysis">
+                    <img src="utilities/header3.png" alt="Middle Layer" class="bottom-layer-image" />
+                    <img src="utilities/header1.png" alt="Front Layer" class="top-layer-image" />
+                </div>
+            </div>
+
+
+            <div class="col-md-6 p-4 ">
+                <h1 class="main-title">
+                    LIGHT UP YOUR SPACE<br>
+                    WITH TASTE AND ELEGANCE
+                </h1>
+
+                <div class="curved-line">
+                    <svg width="236" height="44" viewBox="0 0 236 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M1 12.3722C87.0054 3.79046 253.826 -8.22392 233.065 12.3722C212.304 32.9682 160.867 41.0879 137.744 42.5732"
+                            stroke="black" stroke-linecap="round" />
+                    </svg>
                 </div>
 
 
-                <div class="col-md-6 p-4 ">
-                    <h1 class="main-title">
-                        LIGHT UP YOUR SPACE<br>
-                        WITH TASTE AND ELEGANCE
-                    </h1>
+                <div class="d-flex flex-column">
+                    <p class="description">
+                        We are a specialized store offering reliable products including sockets and switches, water
+                        heaters, lighting, mixers, bidets, as well as security locks and cameras. At MUSC, we believe
+                        that quality, clarity, and trust are the foundation of every interaction. We are passionate
+                        about delivering a smooth and secure online shopping experience.
+                    </p>
 
-                    <div class="curved-line">
-                        <svg width="236" height="44" viewBox="0 0 236 44" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M1 12.3722C87.0054 3.79046 253.826 -8.22392 233.065 12.3722C212.304 32.9682 160.867 41.0879 137.744 42.5732"
-                                stroke="black" stroke-linecap="round" />
-                        </svg>
-                    </div>
-
-
-                    <div class="d-flex flex-column">
-                        <p class="description">
-                        We are a specialized store offering reliable products including sockets and switches, water heaters, lighting, mixers, bidets, as well as security locks and cameras. At MUSC, we believe that quality, clarity, and trust are the foundation of every interaction. We are passionate about delivering a smooth and secure online shopping experience.
-                        </p>
-
-                        <button class="shop-now-btn btn" id="shopNowBtn">
-                            <span class="shop-now-text">SHOP NOW</span>
-                            <div class="btn-circle">
-                                <i class="fa-solid fa-arrow-up-long"></i>
-                            </div>
-                        </button>
-                    </div>
-
+                    <button class="shop-now-btn btn" id="shopNowBtn">
+                        <span class="shop-now-text">SHOP NOW</span>
+                        <div class="btn-circle">
+                            <i class="fa-solid fa-arrow-up-long"></i>
+                        </div>
+                    </button>
                 </div>
+
+            </div>
 
         </div>
     </div>
+
 
     <div class="stats-container">
         <div class="stats-item">
-            <h3 class="stats-number">50+</h3>
-            <p class="stats-description">Product</p>
+            <h3 class="stats-number" data-target="50">0</h3>
+            <p class="stats-description">Products</p>
         </div>
         <div class="stats-item">
-            <h3 class="stats-number">+100</h3>
-            <p class="stats-description">Satisfied client</p>
+            <h3 class="stats-number" data-target="100">0</h3>
+            <p class="stats-description">Satisfied Clients</p>
         </div>
         <div class="stats-item">
-            <h3 class="stats-number">+20</h3>
-            <p class="stats-description">years of experience</p>
+            <h3 class="stats-number" data-target="20">0</h3>
+            <p class="stats-description">Years of Experience</p>
         </div>
+
         <div class="stats-item">
-            <h3 class="stats-number">+20</h3>
-            <p class="stats-description">years of experience</p>
+            <h3 class="stats-number" data-target="20">0</h3>
+            <p class="stats-description">Years of Experience</p>
         </div>
+        
     </div>
 
 </section>
- 
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const counters = document.querySelectorAll('.stats-number');
+
+        counters.forEach(counter => {
+            const updateCounter = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const increment = target / 100;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(updateCounter, 20);
+                } else {
+                    counter.innerText = target + (target === 50 ? '+' : target === 100 ? '+' : '');
+                }
+            };
+
+            // Start counter when element is in viewport
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    updateCounter();
+                    observer.disconnect();
+                }
+            }, { threshold: 0.5 });
+
+            observer.observe(counter);
+        });
+    });
+</script>
 
 <?php
 // Include footer component

@@ -31,16 +31,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 
-<body>
+<body class="<?php echo basename($_SERVER['PHP_SELF']) === 'index.php' ? 'home-page' : ''; ?>">
     <!-- Floating Navigation -->
     <nav class="floating-nav">
         <div class="nav-container">
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#products">products</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact us</a></li>
+                <li><a href="./index.php">Home</a></li>
+                <li><a href="./about.php">About Us</a></li>
+                <li><a href="./products.php">products</a></li>
+                <li><a href="./services.php">Services</a></li>
+                <li><a href="./contact-us.php">Contact us</a></li>
             </ul>
             <div class="search-container">
                 <button class="search-toggle">
@@ -67,7 +67,7 @@
     <header class="main-header">
         <div class="container">
             <nav class="navbar">
-                <a href="/" class="logo">
+                <a href="./index.php" class="logo">
                     <img src="utilities/logo.svg" alt="Logo" class="logo-img" />
                 </a>
                 <div class="nav-center"></div>
@@ -78,6 +78,7 @@
             </nav>
         </div>
     </header>
+ 
 </body>
 
 </html>
