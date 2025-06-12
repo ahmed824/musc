@@ -955,7 +955,7 @@ body {
   border: none;
 }
 
-.order-summary {
+.cart-section .order-summary {
   background: #f8f9fa;
   border-radius: 8px;
   position: sticky;
@@ -2197,29 +2197,29 @@ i.input-icon {
   left: 16px;
 }
 
-.form-control:focus {
+.contact-us-section .form-control:focus {
   background: white;
   border: 1px solid #000;
   box-shadow: none;
 }
 
-textarea.form-control {
+.contact-us-section textarea.form-control {
   border-radius: 10px !important;
 }
 
-.form-label {
+.contact-us-section .form-label {
   font-weight: 400;
   color: #999999;
   margin-bottom: 8px;
   transition: color 0.3s ease;
 }
 
-.form-control:focus + .form-label,
-.form-control:focus ~ .form-label {
+.contact-us-section .form-control:focus + .form-label,
+.contact-us-section .form-control:focus ~ .form-label {
   color: #000;
 }
 
-.form-control::placeholder {
+.contact-us-section .form-control::placeholder {
   color: #9999;
   opacity: 1;
 }
@@ -2772,14 +2772,14 @@ img.speech-bubble {
   margin-bottom: 1.5rem;
 }
 
-.form-label {
+.profile-section .form-label {
   font-weight: 600;
   color: #ffffff;
   margin-bottom: 0.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.form-control {
+.profile-section .form-control {
   background-color: rgba(0, 0, 0, 0.6);
   border: 2px solid #334155;
   border-radius: 8px;
@@ -3148,8 +3148,8 @@ body:not(.home-page) .floating-nav {
   flex-wrap: wrap;
 }
 
-.billing-details,
-.order-summary {
+.checkout-section .billing-details,
+.checkout-section .order-summary {
   flex: 1;
   background: #000; /* Black form background */
   padding: 1.5rem;
@@ -3250,8 +3250,8 @@ body:not(.home-page) .floating-nav {
   padding: 0 2px;
 }
 
-.form-group input::placeholder,
-.form-group select::placeholder {
+.checkout-form .form-group input::placeholder,
+.checkout-form .form-group select::placeholder {
   color: transparent;
 }
 
@@ -3426,4 +3426,37 @@ body:not(.home-page) .floating-nav {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.mobile-toggle {
+    display: none;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.mobile-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.mobile-toggle i {
+    color: #fff;
+    font-size: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+.mobile-toggle:hover i {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .mobile-toggle {
+        display: block;
+    }
 }
